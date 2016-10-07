@@ -1,0 +1,15 @@
+var express = require('express');
+var router = express.Router();
+
+
+router.get('/', function(req, res, next) {
+    res.render('createGame')
+})
+
+
+/* GET scorecard page. */
+// router.post('/', function(req, res, next) {
+//   res.render('scorecard', { title: 'this is the scorecard page' });
+// });
+
+module.exports = router;;
