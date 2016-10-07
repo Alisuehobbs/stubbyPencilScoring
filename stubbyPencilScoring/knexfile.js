@@ -3,12 +3,12 @@
 module.exports = {
     development: {
         client: 'pg',
-        connection: 'postgres://localhost/stubbyPencilScoring_dev'
+        connection: 'postgres://localhost/stubbypencilscoring_dev'
     },
 
     test: {
         client: 'pg',
-        connection: 'postgres://localhost/stubbyPencilScoring_test'
+        connection: 'postgres://localhost/stubbypencilscoring_test'
     },
 
     production: {
