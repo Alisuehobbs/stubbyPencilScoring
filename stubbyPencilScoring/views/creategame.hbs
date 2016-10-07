@@ -1,1 +1,53 @@
-<h1>you made it to the create a game page</h1>
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Logo</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>you made it to the create a game page</h1>
+
+
+    <div class="row">
+        <form class="col s12" method="post" action="/creategame">
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <input placeholder="i.e. Pinnacle, Hearts, Football" id="game_name" type="text" class="validate" name="game_name">
+                    <label for="game_name">Game Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <input id="players" type="text" class="validate" data-error="Use only numbers.">
+                    <label for="players"># of Players</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <input id="number_of_rounds" type="text" class="validate" data-error="Use only numbers." name="number_of_rounds">
+                    <label for="number_of_rounds"># of Rounds</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <input placeholder="i.e. Quarter, Half, Period" id="row_label" type="text" class="validate">
+                    <label for="round_label">Round Label</label>
+                </div>
+            </div>
+            <button class="waves-effect waves-light btn" type="submit" >Submit</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
+    <!-- End container div -->
+</div>
