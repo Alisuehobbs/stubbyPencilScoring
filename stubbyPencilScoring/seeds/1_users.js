@@ -24,8 +24,8 @@ exports.seed = function(knex, Promise) {
         knex('users').insert({
           first_name: 'Matt',
           last_name: 'Gardner',
-          email:'ali@email.com',
-          user_name:'alibalie',
+          email:'matt@email.com',
+          user_name:'Matt',
           image:'http://www.fillmurray.com/g/200/303',
           hashed_password:'alkjdfpaoeinveea390482'
         })
