@@ -1,13 +1,21 @@
 'use strict'
-var express = require('express');
-var router = express.Router();
-var knex = require('../db/knex')
+const express = require('express');
+const router = express.Router();
+const knex = require('../db/knex');
 
-router.get('/', function(req, res, next) {
+const authorize = (req, res, next) => {
+    if (!req.session.userInfo) {
+        res.send('Unauthorized');
+    }
+    next();
+}
+
+router.get('/', authorize, (req, res, next) => {
   // knex('games')
   //   .then(games => {
   //     res.render('profile',{games})
   //     })
+
   knex('users')
     .then(users => {
     res.render('profile',{users})

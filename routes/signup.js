@@ -10,24 +10,29 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
 
-  const hashed_password = bcrypt.hashSync(req.body.password, 8)
+    const hashed_password = bcrypt.hashSync(req.body.password, 8)
 
-  const newUserObj = {
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    email: req.body.email,
-    user_name: req.body.user_name,
-    image: req.body.image,
-    hashed_password: hashed_password
-  }
-
-  console.log(newUserObj);
+    const newUserObj = {
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        user_name: req.body.user_name,
+        image: req.body.image,
+        hashed_password: hashed_password
+    }
 
     knex('users')
-      .insert(newUserObj)
-      .then(() => {
-        res.redirect('profile')
-      })
+        .insert(newUserObj, 'id')
+        .then((users) => {
+            const id = users[0]
+            knex('users')
+                .where('id', id)
+                .first()
+                .then((returnUserObject) => {
+                    req.session.userInfo = returnUserObject;
+                    res.redirect('profile')
+                })
+        })
 })
 
 module.exports = router;
