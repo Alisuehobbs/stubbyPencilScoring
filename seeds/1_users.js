@@ -1,4 +1,3 @@
-
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('users').del()
@@ -25,7 +24,7 @@ exports.seed = function(knex, Promise) {
           first_name: 'Matt',
           last_name: 'Gardner',
           email:'matt@email.com',
-          user_name:'alibalie',
+          user_name:'Matt',
           image:'http://www.fillmurray.com/g/200/303',
           hashed_password:'alkjdfpaoeinveea390482'
         })

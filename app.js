@@ -3,7 +3,7 @@ const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
-const cookieSession = require('cookie-session');
+const cookieSession = require('cookie-session')
 const bodyParser = require('body-parser');
 
 const index = require('./routes/index')
@@ -11,6 +11,7 @@ const signup = require('./routes/signup')
 const login = require('./routes/login')
 const profile = require('./routes/profile')
 const creategame = require('./routes/creategame')
+console.log();
 const scorecard = require('./routes/scorecard')
 
 const app = express();
@@ -27,6 +28,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+app.use(cookieSession({
+    name: 'stubbypencilscoring',
+    secret: 'secretsecretivegotasecret'
+}))
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
