@@ -3,8 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+	  "knex": "knex",
+	  "heroku-postbuild": "knex migrate:latest",
+	  "nodemon": "nodemon server.js"
   },
+  "engines": {
+	  "node": "DEV_VERSION"
+	},
   "dependencies": {
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
