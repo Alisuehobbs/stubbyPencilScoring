@@ -1,5 +1,5 @@
 
-
+<link rel="stylesheet" href="/stylesheets/kcs.css">
 <h1>you made it to the scorecard page</h1>
 
 {{#each users}}
@@ -10,9 +10,10 @@
   <img class="photos" src={{image}} alt="user person"/>
   <hr>
 {{/each}}
-{{label}}
+
 {{#each rounds}}
 {{round.id}}
+{{label}}
 //admin inserts scores...
 
 {{/each}}
