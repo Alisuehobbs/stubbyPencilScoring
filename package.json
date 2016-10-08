@@ -9,7 +9,7 @@
 	  "nodemon": "nodemon server.js"
   },
   "engines": {
-	  "node": "DEV_VERSION"
+	  "node": "v6.6.0"
 	},
   "dependencies": {
     "body-parser": "~1.15.1",

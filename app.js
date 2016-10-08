@@ -11,7 +11,6 @@ const signup = require('./routes/signup')
 const login = require('./routes/login')
 const profile = require('./routes/profile')
 const creategame = require('./routes/creategame')
-console.log();
 const scorecard = require('./routes/scorecard')
 
 const app = express();
