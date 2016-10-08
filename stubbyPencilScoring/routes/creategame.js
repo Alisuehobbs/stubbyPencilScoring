@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
         .then((createdGame) => {
             let game = createdGame[0]
             console.log('the game is', game);
-            console.log('req.body.label is', req.body.label);
+            console.log('the req.session is', req.session);
             return knex('rounds')
                 .insert({
                     games_id: 1, //harcode for now use req.session...
