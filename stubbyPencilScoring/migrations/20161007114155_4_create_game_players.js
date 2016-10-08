@@ -1,7 +1,7 @@
 'use strict';
 
 exports.up = function(knex) {
-    return knex.schema.createTable('game_users', (table) => {
+    return knex.schema.createTable('game_players', (table) => {
         table.increments();
         table.integer('games_id')
             .notNullable()
