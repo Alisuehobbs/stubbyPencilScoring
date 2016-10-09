@@ -4,14 +4,15 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-	  "knex": "knex",
-	  "heroku-postbuild": "knex migrate:latest",
-	  "nodemon": "nodemon server.js"
+    "knex": "knex",
+    "heroku-postbuild": "knex migrate:latest",
+    "nodemon": "nodemon server.js"
   },
   "engines": {
-	  "node": "v6.6.0"
-	},
+    "node": "v6.6.0"
+  },
   "dependencies": {
+    "bcrypt": "^0.8.7",
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
     "cookie-session": "^2.0.0-alpha.1",
