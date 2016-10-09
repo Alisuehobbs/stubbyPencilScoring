@@ -15,13 +15,13 @@ router.post('/', (req, res) => {
         .insert({
             game_name: req.body.game_name,
             status_id: 1,
-            user_id: 1
+            user_id: req.session.userInfo.id
                 //         user_id: //hard code for now(req.session.id) or localStorage.getItem('id')
         }, '*')
         .then((createdGame) => {
             let game = createdGame[0]
             console.log('the game is', game);
-            console.log('the req.session is', req.session);
+            console.log('the req.session is', req.session.userInfo);
             return knex('rounds')
                 .insert({
                     games_id: 1, //harcode for now use req.session...
