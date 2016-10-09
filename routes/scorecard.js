@@ -4,11 +4,14 @@ var router = express.Router();
 var knex = require('../db/knex')
 
 router.get('/', function(req, res, next) {
-  knex('games')
-  .join('users', 'user_id',"=", 'games.user.id')
-    .then(games => {
-      res.render('scorecard',{games, users})
+  knex('users')
+  .join('games', 'user_id', 'games.user_id')
+  .then(users => {
+      res.render('scorecard',{users})
       })
+    // .then(users =>{
+    //   res.render('scorecard', {users})
+    // })
   // knex('users')
   //   .then(users => {
   //   res.render('scorecard',{users})
