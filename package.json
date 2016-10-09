@@ -6,10 +6,10 @@
     "start": "node ./bin/www",
     "knex": "knex",
     "heroku-postbuild": "knex migrate:latest",
-    "nodemon": "nodemon server.js"
+    "nodemon": "nodemon app.js"
   },
   "engines": {
-    "node": "v6.6.0"
+    "node": "DEV_VERSION"
   },
   "dependencies": {
     "bcrypt": "^0.8.7",
