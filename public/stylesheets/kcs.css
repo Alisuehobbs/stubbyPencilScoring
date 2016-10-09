@@ -1,3 +1,7 @@
 .photos {
-   border-radius: 50%;
+    display: block;
+    margin: auto;
+    height: 125px;
+    width: 125px;
+    border-radius: 50%;
 }

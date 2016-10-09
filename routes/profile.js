@@ -10,22 +10,18 @@ const authorize = (req, res, next) => {
     next();
 }
 
-router.get('/', authorize, (req, res, next) => {
-  // knex('games')
-  //   .then(games => {
-  //     res.render('profile',{games})
-  //     })
-
-  knex('users')
-    .then(users => {
-    res.render('profile',{users})
-  // knex('rounds')
-  // .then(rounds =>{
-  //   res.render('profile',{rounds})
-  //
-  //   })
-
-  })
+router.get('/', function(req, res, next) {
+    knex('users')
+        .join('games', 'user_id', 'games.user_id')
+        // .join('rounds','games_id', 'rounds.games_id')
+        .where('user_id', 1)
+        .then(profile => {
+            res.render('profile', {
+                profile
+            })
+            console.log('profile', profile);
+        })
 })
+
 
 module.exports = router;
