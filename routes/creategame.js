@@ -3,59 +3,59 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex')
 
+function insertRows(numRows, idInfo) {
 
-router.get('/', ((req, res, next) => {
+    for (var i = 0; i < numRows; i++) {
+        knex('user_rounds')
+            .insert({
+                rounds_id: 1,
+                round_number: i,
+                users_id: idInfo,
+            })
+            .catch((err) => {
+                return err
+            })
+    }
+}
+
+
+router.get('/', (req, res, next) => {
     res.render('createGame')
-}))
+})
 
 // insert game criteria into database
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
     let number
+    let userId = Number.parseInt(req.session.userInfo.id)
+    let roundNumber = Number.parseInt(req.body.number_of_rounds)
+    console.log('req session user info id', userId);
+    console.log(typeof userId);
     knex('games')
         .insert({
             game_name: req.body.game_name,
             status_id: 1,
-            users_id: req.session.userInfo.id
+            users_id: userId
         }, '*')
         .then((createdGameInfo) => {
-            console.log('req.body is ', req.body);
+            // console.log('req.body is ', req.body);
             let game = createdGameInfo[0]
             return knex('rounds')
                 .insert({
                     games_id: game.id,
-                    users_id: req.session.userInfo.id,
+                    users_id: userId,
                     label: req.body.label,
                     number_of_rounds: parseInt(req.body.number_of_rounds),
                 }, '*')
+                .then((info) => {
+                    insertRows(roundNumber, userId);
+                })
                 .then(() => {
-                    console.log(game);
-                    return knex('user_rounds')
-                    number = parseInt(req.body.number_of_rounds)
-                    for (var i = 1; i <= number; i++) {}
-                    console.log('# is ', i);
-                    // .insert({
-                    //   round_id: user_id: req.session.userInfo.id
-                    //   round_number: i
-                    // })
+                    res.redirect('/scorecard')
+                })
+                .catch((err) => {
+                    next(err)
                 })
         })
-        // .returning('*')
-        //     .then(createdGameInfo => {
-        //         var gameThign = createdGameInfo
-        //         console.log('id', createdGameInfo);
-        //         // knex('rounds')
-        //         .insert({
-        //             games_id: createdGameInfo.id,
-        //
-        //         })
-        //
-        // })
-
 })
 
-/* GET scorecard page. */
-// router.post('/', function(req, res, next) {
-//   res.render('scorecard', { title: 'this is the scorecard page' });
-// });
-
-module.exports = router;;;;
+module.exports = router;
