@@ -7,12 +7,14 @@ exports.seed = function(knex, Promise) {
         // Inserts seed entries
         knex('rounds').insert({
           games_id: '1',
-          label: 'quarter'
+          label: 'quarter',
+          number_of_rounds: 4
 
         }),
         knex('rounds').insert({
           games_id: '2',
-          label: 'half'
+          label: 'half',
+          number_of_rounds: 2
 
         })
       ]);

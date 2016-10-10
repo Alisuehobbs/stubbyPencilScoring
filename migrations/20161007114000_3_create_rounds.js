@@ -5,6 +5,7 @@ exports.up = function(knex) {
     table.increments();
     table.integer('games_id').notNullable().references('id').inTable('games').onDelete('CASCADE').index();
     table.string('label').notNullable().defaultTo('');
+    table.integer('number_of_rounds').notNullable();
     table.timestamps(true, true);
   });
 };
