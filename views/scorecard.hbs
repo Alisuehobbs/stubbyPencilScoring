@@ -4,7 +4,7 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="/">Home</a></li>
             <li><a href="/profile">Profile</a></li>
-            <li><a href="/">Logout</a></li>
+            <li><a href="/logout">Logout</a></li>
         </ul>
     </div>
 </nav>
@@ -12,8 +12,9 @@
 <h1 class="center">You made it to the scorecard page!</h1>
 
 
+
 {{#each scorecard}}
-    <h1 class="center">{{game_name}}</h1>
+<h1 class="center">{{game_name}}</h1>
     <img class="photos" src= {{image}} alt="user person" />
 
     <h1 class="center">{{first_name}}</h1> {{rounds.id}} {{label}} //admin inserts scores...
