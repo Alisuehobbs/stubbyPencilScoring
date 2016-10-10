@@ -47,7 +47,8 @@ app.use(cookieSession({
     name: 'stubbypencilscoring',
     secret: process.env.SESSION_SECRET,
     secureProxy: app.get('env') === 'production'
-}))
+}));
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
