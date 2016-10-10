@@ -29,6 +29,7 @@ const login = require('./routes/login')
 const profile = require('./routes/profile')
 const creategame = require('./routes/creategame')
 const scorecard = require('./routes/scorecard')
+const logout = require('./routes/logout')
 
 
 
@@ -58,6 +59,7 @@ app.use('/login', login);
 app.use('/profile', profile);
 app.use('/creategame', creategame);
 app.use('/scorecard', scorecard);
+app.use('/logout', logout);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

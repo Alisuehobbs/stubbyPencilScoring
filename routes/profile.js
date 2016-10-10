@@ -12,9 +12,9 @@ const authorize = (req, res, next) => {
 
 router.get('/', function(req, res, next) {
     knex('users')
-        .join('games', 'user_id', 'games.user_id')
+        .join('games', 'users_id', 'games.users_id')
         // .join('rounds','games_id', 'rounds.games_id')
-        .where('user_id', 1)
+        .where('users_id', 1)
         .then(profile => {
             res.render('profile', {
                 profile
