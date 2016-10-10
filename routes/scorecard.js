@@ -4,6 +4,7 @@ var router = express.Router();
 var knex = require('../db/knex')
 
 router.get('/', function(req, res, next) {
+<<<<<<< HEAD
   knex('users')
   .join('games', 'user_id', 'games.user_id')
   // .join('rounds','user_id', 'rounds.user_id')
@@ -17,7 +18,7 @@ router.get('/', function(req, res, next) {
         })
       console.log("scorecard", scorecard);
       })
-})
+
 
 
 module.exports = router;
