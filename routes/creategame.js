@@ -3,13 +3,14 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex')
 
-function insertRows(numRows, idInfo, roundId) {
-    for (var i = 0; i < numRows; i++) {
+function insertRows(numRows, idInfo, roundId, gameId) {
+    for (var i = 1; i <= numRows; i++) {
         knex('user_rounds')
             .insert({
                 rounds_id: roundId,
                 round_number: i,
                 users_id: idInfo,
+                games_id: gameId,
             })
             .catch((err) => {
                 return err
@@ -43,12 +44,13 @@ router.post('/', (req, res, next) => {
                     number_of_rounds: parseInt(req.body.number_of_rounds),
                 }, '*')
                 .then((info) => {
-                    console.log('info is', info[0].id);
+                    console.log('game is', game);
                     let roundId = info[0].id
-                    insertRows(roundNumber, userId, roundId);
+                    let gameId = game.id
+                    insertRows(roundNumber, userId, roundId, gameId);
                 })
                 .then(() => {
-                    res.redirect('/login')
+                    res.redirect('/scorecard')
                 })
                 .catch((err) => {
                     next(err)
