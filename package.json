@@ -9,7 +9,7 @@
     "nodemon": "nodemon app.js"
   },
   "engines": {
-    "node": "DEV_VERSION"
+    "node": "6.3.1"
   },
   "dependencies": {
     "bcrypt": "^0.8.7",
