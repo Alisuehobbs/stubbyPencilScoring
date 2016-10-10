@@ -45,7 +45,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieSession({
     name: 'stubbypencilscoring',
-    secret: processs.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET,
     secureProxy: app.get('env') === 'production'
 }))
 app.use(cookieParser());
