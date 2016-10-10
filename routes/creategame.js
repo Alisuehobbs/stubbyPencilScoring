@@ -27,17 +27,17 @@ router.post('/', (req, res) => {
                     label: req.body.label,
                     // number_of_rounds: ,
                 }, '*')
-                // .then(() => {
-                //     console.log(game);
-                //     return knex('user_rounds')
-                //     number = parseInt(req.body.number_of_rounds)
-                //     for (var i = 1; i <= number; i++) {}
-                //     console.log('# is ', i);
-                //     // .insert({
-                //     //   round_id: user_id: req.session.userInfo.id
-                //     //   round_number: i
-                //     // })
-                // })
+                .then(() => {
+                    console.log(game);
+                    return knex('user_rounds')
+                    number = parseInt(req.body.number_of_rounds)
+                    for (var i = 1; i <= number; i++) {}
+                    console.log('# is ', i);
+                    // .insert({
+                    //   round_id: user_id: req.session.userInfo.id
+                    //   round_number: i
+                    // })
+                })
         })
         // .returning('*')
         //     .then(createdGameInfo => {
