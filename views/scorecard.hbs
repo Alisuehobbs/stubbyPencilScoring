@@ -13,22 +13,30 @@
 
 
 
-<h1 class="center">{{test}}</h1>
+<h1 class="center">{{game_name}}</h1>
 <div class="container">
     <div class="row">
-        <div class="col s3">
-{{#each scorecard}}
-  <img class="photos" src= {{image}} alt="user person" />
-
-
-{{#each scorecard}}
-<h1 class="center">{{game_name}}</h1>
-    <img class="photos" src= {{image}} alt="user person" />
-
-
-    <h1>{{first_name}}</h1>
-  </div>
+        <div class="col s12">
+            <table class="centered responsive-table">
+                <tbody>
+                    <tr>
+                        {{#each scorecard}}
+                            <td>
+                                <img class="photos" src= {{image}} alt="user person" />
+                            </td>
+                        {{/each}}
+                    </tr>
+                    <tr>
+                        {{#each scorecard}}
+                            <td>
+                                <h5 class="centered">{{first_name}}</h5>
+                            </td>
+                        {{/each}}
+                    </tr>
+                </tbody>
+            </table>
+            <h4>Rounds</h4>
+        </div>
+    </div>
 </div>
-</div>
- {{rounds.id}} {{label}} //admin inserts scores...
-{{/each}}
+<!-- {{rounds.id}} {{label}} //admin inserts scores... -->

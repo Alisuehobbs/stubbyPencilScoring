@@ -10,7 +10,11 @@ router.get('/', function(req, res, next) {
   .where('user_id', 1)
   // .where('user_id', req.session.user_id)
   .then(scorecard => {
-      res.render('scorecard',{scorecard: scorecard, test: scorecard[0].game_name})
+      res.render('scorecard',{
+        scorecard: scorecard,
+        game_name: scorecard[0].game_name,
+        image: scorecard.image
+        })
       console.log("scorecard", scorecard);
       })
 })
