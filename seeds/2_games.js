@@ -13,7 +13,6 @@ exports.seed = function(knex, Promise) {
                     users_id: '3',
                     game_name: 'checkers',
                     status_id: '2',
-
                 })
             ]);
         });
