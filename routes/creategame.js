@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
         .insert({
             game_name: req.body.game_name,
             status_id: 1,
-            // user_id: req.session.userInfo.id
+            users_id: req.session.userInfo.id
         }, '*')
         .then((createdGameInfo) => {
             console.log('req.body is ', req.body);
@@ -23,9 +23,9 @@ router.post('/', (req, res) => {
             return knex('rounds')
                 .insert({
                     games_id: game.id,
-                    // users_id: req.session.userInfo.id,
+                    users_id: req.session.userInfo.id,
                     label: req.body.label,
-                    // number_of_rounds: ,
+                    number_of_rounds: parseInt(req.body.number_of_rounds),
                 }, '*')
                 .then(() => {
                     console.log(game);
