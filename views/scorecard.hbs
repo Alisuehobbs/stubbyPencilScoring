@@ -13,9 +13,68 @@
 
 
 
-{{#each scorecard}}
 <h1 class="center">{{game_name}}</h1>
-    <img class="photos" src= {{image}} alt="user person" />
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <table class="centered responsive-table">
+                <tbody>
+                    <tr>
+                        {{#each scorecard}}
+                            <td>
+                                <img class="photos" src= {{image}} alt="user person" />
+                            </td>
+                        {{/each}}
+                    </tr>
+                    <tr>
+                        {{#each scorecard}}
+                            <td>
+                                <h5 class="centered">{{first_name}}</h5>
+                                <form class="col s12">
+                                  <div class="row">
+                                    <div class="input-field col s4">
+                                      <input placeholder="enter score" id="score" type="text" class="validate">
+                                      <label for="score"></label>
+                                    </div>
+                                  </td>
+                        {{/each}}
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <h4>Rounds</h4> -->
+        </div>
+    </div>
+</div>
+<!-- {{rounds.id}} {{label}} //admin inserts scores... -->
+<div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
 
-    <h1 class="center">{{first_name}}</h1> {{rounds.id}} {{label}} //admin inserts scores...
-{{/each}}
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+    </form>
+  </div>
