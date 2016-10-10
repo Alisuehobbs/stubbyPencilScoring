@@ -7,9 +7,7 @@ router.get('/', function(req, res, next) {
 
   knex('users')
   .join('games', 'users_id', 'games.users_id')
-
-  // .join('rounds','user_id', 'rounds.user_id')
-
+  // .join('user_rounds','games.id', 'user_rounds.games_id')
   .where('games.users_id', 1)
   // .where('user_id', req.session.user_id)
 
@@ -24,7 +22,5 @@ router.get('/', function(req, res, next) {
       console.log("scorecard", scorecard);
       })
     })
-
-
 
 module.exports = router;

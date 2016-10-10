@@ -7,6 +7,7 @@ exports.up = function(knex) {
     table.integer('round_number').notNullable();
     table.integer('users_id').notNullable().references('id').inTable('users').onDelete('CASCADE').index();
     table.integer('score');
+    table.integer('games_id').notNullable().references('id').inTable('games').onDelete('CASCADE').index();
     table.timestamps(true, true);
   });
 };
