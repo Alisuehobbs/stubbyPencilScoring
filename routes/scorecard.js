@@ -8,8 +8,9 @@ router.get('/', function(req, res, next) {
   .join('games', 'user_id', 'games.user_id')
   // .join('rounds','user_id', 'rounds.user_id')
   .where('user_id', 1)
+  // .where('user_id', req.session.user_id)
   .then(scorecard => {
-      res.render('scorecard',{scorecard})
+      res.render('scorecard',{scorecard: scorecard, test: scorecard[0].game_name})
       console.log("scorecard", scorecard);
       })
 })
