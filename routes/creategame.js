@@ -29,9 +29,9 @@ function insertUserNames(userNameArr, game, sessionId) {
                     throw boom.create(400, 'Cannot find that user. Try another username')
                 }
                 // var sessionId = req.session.userInfo.id
-                var userId = user.id
-                var gameId = game.id
-                var isAdmin = function() {
+                let userId = user.id
+                let gameId = game.id
+                let isAdmin = function() {
                     if (sessionId == userId) {
                         // console.log('true');
                         return true
