@@ -19,41 +19,36 @@ function insertRows(numRows, idInfo, roundId, gameId) {
     }
 }
 
-function insertUserNames(userArr, game, req) {
-    for (var i = 0; i < userArr.length; i++) {
+function insertUserNames(userNameArr, game, sessionId) {
+    for (var i = 0; i < userNameArr.length; i++) {
         knex('users')
-            .where('user_name', userArr[i])
+            .where('user_name', userNameArr[i])
             .first()
             .then((user) => {
-                // console.log('session is', req.session.userInfo.id);
-                let sessionId = req.session.userInfo.id
-                    // console.log('game info is ', game);
-                    // console.log('this is the type', user);
                 if (!user) {
-                    let userNameError = boom.create(400, 'Cannot find that user. Try another username')
+                    throw boom.create(400, 'Cannot find that user. Try another username')
                 }
-                console.log('user id is', user.id);
-                // let userId = user.id[i]
-                let isAdmin = function() {
-                    console.log('session id', sessionId);
-                    console.log('user id', user.id[i]);
-                    console.log('type ses id', typeof sessionId);
-                    console.log('type user id', typeof user.id[i]);
-
-                    if (sessionId == user.id[i]) {
-                        console.log('true');
+                // var sessionId = req.session.userInfo.id
+                var userId = user.id
+                var gameId = game.id
+                var isAdmin = function() {
+                    if (sessionId == userId) {
+                        // console.log('true');
                         return true
                     } else {
-                        console.log('false');
+                        // console.log('false');
                         return false
                     }
 
                 }
                 knex('game_players')
                     .insert({
-                        users_id: user.id[i],
-                        games_id: game.id,
+                        users_id: userId,
+                        games_id: gameId,
                         admin: isAdmin()
+                    }, 'id')
+                    .then((id) => {
+                        // console.log('the id is', id);
                     })
             })
     }
@@ -65,39 +60,34 @@ router.get('/', (req, res, next) => {
     // insert game criteria into database
 router.post('/', (req, res, next) => {
     let number
-    let userId = Number.parseInt(req.session.userInfo.id)
-        // console.log('req.body is ', req.body);
-        // console.log('req.session is ', req.session);
-        // console.log('username is ', req.session.userInfo.user_name);
+    let sessionId = Number.parseInt(req.session.userInfo.id)
     knex('games')
         .insert({
             game_name: req.body.game_name,
             status_id: 1,
-            users_id: userId
+            users_id: sessionId
         }, '*')
         .then((createdGameInfo) => {
             let game = createdGameInfo[0]
             return knex('rounds')
                 .insert({
                     games_id: game.id,
-                    users_id: userId,
+                    users_id: sessionId,
                     label: req.body.label,
                     number_of_rounds: parseInt(req.body.number_of_rounds),
                 }, '*')
                 .then((info) => {
-                    // console.log('game is', game);
-                    console.log('im getting here');
                     let roundNumber = Number.parseInt(req.body.number_of_rounds)
                     let roundId = info[0].id
                     let gameId = game.id
-                    insertRows(roundNumber, userId, roundId, gameId);
-                    let userArr = req.body.user_name
-                    insertUserNames(userArr, game, req)
+                    insertRows(roundNumber, sessionId, roundId, gameId);
+                    let userNameArr = req.body.user_name
+                    insertUserNames(userNameArr, game, sessionId)
                 }, '*')
 
 
             .then(() => {
-                    console.log(req.body.user_name);
+                    // console.log(req.body.user_name);
                     res.redirect('/login')
                 })
                 .catch((err) => {
@@ -106,4 +96,4 @@ router.post('/', (req, res, next) => {
         })
 })
 
-module.exports = router;
+module.exports = router;;
