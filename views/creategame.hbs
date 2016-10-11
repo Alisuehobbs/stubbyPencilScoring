@@ -1,16 +1,20 @@
+<script src="/js/creategame.js"></script>
 
-<script type="text/javascript" src="/js/creategame.js">
-
-</script>
-<nav>
-    <div class="nav-wrapper blue">
-        <a href="#" class="brand-logo">Logo</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/">Home</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/logout">Logout</a></li>
-        </ul>
-    </div>
+<nav class="blue">
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">Logo</a>
+    <a href="#" class="button-collapse" data-activates="mobile-demo"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/">Home</a></li>
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/logout">Log Out</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a href="/">Home</a></li>
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/logout">Log Out</a></li>
+    </ul>
+  </div>
 </nav>
 
 <div class="container">
@@ -35,7 +39,7 @@
             <div class="row">
                 <div class="input-field col s12 m6 l6">
                     <input id="players" type="text" class="validate" data-error="Use only numbers.">
-                    <label for="players"># of Players</label>
+                    <label for="players"># of Players/Teams</label>
                 </div>
             </div>
             <div class="row">
@@ -46,13 +50,35 @@
             </div>
             <div class="row">
                 <div class="input-field col s12 m6 l6">
-                    <input placeholder="i.e. Quarter, Half, Period" id="round_label" type="text" class="validate" name="label">
+                    <input placeholder="i.e. Quarter, Half, Period, Hand" id="round_label" type="text" class="validate" name="label">
                     <label for="round_label">Round Label</label>
                 </div>
             </div>
             <button class="waves-effect waves-light btn" type="submit">Submit</button>
         </form>
+        <!-- <form id="playerForm" method="post" action="/creategame"> -->
+          <!-- <div id="playerForm"></div> -->
+        <!-- </form> -->
+        <form id="players_form" class="col s12" method="post" action="/creategame">
+            <!-- <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <input id="game_name" type="text" class="validate" name="user_name">
+                    <label for="user_name">UserName</label>
+                </div>
+            </div> -->
+        </form>
     </div>
+
+    <form id="players_form" class="col s12" method="post" action="/creategame">
+        <div class="row">
+            <div class="input-field col s12 m6 l6">
+                <input id="game_name" type="text" class="validate" name="user_name">
+                <label for="user_name">UserName</label>
+            </div>
+        </div>
+    </form>
+
+  </div>
 
 
 
