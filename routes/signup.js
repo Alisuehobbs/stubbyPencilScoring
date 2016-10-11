@@ -5,7 +5,9 @@ const bcrypt = require('bcrypt');
 
 /* GET users listing. */
 router.get('/', (req, res, next) => {
-    res.render('signup');
+    res.render('signup', {
+        profilePic: 'https://unsplash.it/200/?random'
+    });
 });
 
 router.post('/', (req, res, next) => {
