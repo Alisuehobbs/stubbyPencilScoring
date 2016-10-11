@@ -11,7 +11,7 @@ $(document).ready(() => {
 
         $('#players_form').show()
 
-        for (var i = 0; i < numberOfPlayers; i++) {
+        for (var i = 1; i < numberOfPlayers; i++) {
 
             let playerForm = `
                     <div class="row">
