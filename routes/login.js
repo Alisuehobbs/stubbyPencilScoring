@@ -13,18 +13,18 @@ router.post('/', (req, res, next) => {
         .where('email', req.body.email)
         .first()
         .then((user) => {
-                var passwordMatch = bcrypt.compareSync(req.body.password, user.hashed_password)
-                if (passwordMatch == false) {
-                    res.send('Bad email or password')
-                } else {
-                    req.session.userInfo = user
-                    console.log(req.session.userInfo);
-                    res.redirect('/profile')
-                }
+            var passwordMatch = bcrypt.compareSync(req.body.password, user.hashed_password)
+            if (passwordMatch == false) {
+                res.send('Bad email or password')
+            } else {
+                req.session.userInfo = user
+                console.log(req.session.userInfo);
+                res.redirect('/profile')
+            }
         })
         .catch((err) => {
-        next(err);
-    })
+            next(err);
+        })
 });
 
 module.exports = router;

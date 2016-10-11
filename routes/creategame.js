@@ -55,7 +55,9 @@ function insertUserNames(userNameArr, game, sessionId) {
 }
 
 router.get('/', (req, res, next) => {
-        res.render('createGame')
+        res.render('createGame', {
+            username: req.session.userInfo.user_name
+        })
     })
     // insert game criteria into database
 router.post('/', (req, res, next) => {
@@ -88,7 +90,7 @@ router.post('/', (req, res, next) => {
 
             .then(() => {
                     // console.log(req.body.user_name);
-                    res.redirect('/scorecard')
+                    res.redirect('/login')
                 })
                 .catch((err) => {
                     next(err)
