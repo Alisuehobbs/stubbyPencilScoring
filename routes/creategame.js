@@ -25,21 +25,35 @@ function insertUserNames(userArr, game, req) {
             .where('user_name', userArr[i])
             .first()
             .then((user) => {
-                console.log('session is', req.session);
-                // console.log('game info is ', game);
-                // console.log('this is the type', user);
+                // console.log('session is', req.session.userInfo.id);
+                let sessionId = req.session.userInfo.id
+                    // console.log('game info is ', game);
+                    // console.log('this is the type', user);
                 if (!user) {
-                    console.log('this is the if');
-                    throw boom.create(400, 'Cannot find that user. Try another username')
+                    let userNameError = boom.create(400, 'Cannot find that user. Try another username')
                 }
                 console.log('user id is', user.id);
-                return user.id
-                let userId = user.id[i]
+                // let userId = user.id[i]
+                let isAdmin = function() {
+                    console.log('session id', sessionId);
+                    console.log('user id', user.id[i]);
+                    console.log('type ses id', typeof sessionId);
+                    console.log('type user id', typeof user.id[i]);
+
+                    if (sessionId == user.id[i]) {
+                        console.log('true');
+                        return true
+                    } else {
+                        console.log('false');
+                        return false
+                    }
+
+                }
                 knex('game_players')
                     .insert({
-                        users_id: userId,
+                        users_id: user.id[i],
                         games_id: game.id,
-                        // admin:
+                        admin: isAdmin()
                     })
             })
     }
@@ -93,4 +107,3 @@ router.post('/', (req, res, next) => {
 })
 
 module.exports = router;
-router;;;
