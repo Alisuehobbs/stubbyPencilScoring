@@ -43,7 +43,10 @@
             </table>
 
             {{label}}
-            {{number_of_rounds}}
+              {{#each scorecard}}
+            {{rounds_id}}
+            {{/each}}
+
 
             <!-- <h4>Rounds</h4> -->
             </div>
