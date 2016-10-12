@@ -1,20 +1,20 @@
-<link rel="stylesheet" href="/stylesheets/kcs.css">
+<link rel="stylesheet" href="/stylesheets/scorecard.css">
 
 <nav class="blue">
-  <div class="nav-wrapper">
-    <a href="/" class="brand-logo">Logo</a>
-    <a href="#" class="button-collapse" data-activates="mobile-demo"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="/">Home</a></li>
-      <li><a href="/profile">Profile</a></li>
-      <li><a href="/logout">Log Out</a></li>
-    </ul>
-    <ul class="side-nav" id="mobile-demo">
-      <li><a href="/">Home</a></li>
-      <li><a href="/profile">Profile</a></li>
-      <li><a href="/logout">Log Out</a></li>
-    </ul>
-  </div>
+    <div class="nav-wrapper">
+        <a href="/" class="brand-logo">Stubby Pencil Scoring</a>
+        <a href="#" class="button-collapse" data-activates="mobile-demo"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">Log Out</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">Log Out</a></li>
+        </ul>
+    </div>
 </nav>
 
 <h1 class="center">You made it to the scorecard page!</h1>
@@ -26,48 +26,28 @@
             <table class="centered responsive-table">
                 <tbody>
                     <tr>
+                        <td>
+                            <img class="photos" src= {{image}} alt="user person" />
+                        </td>
+                    </tr>
+                    <tr>
                         {{#each scorecard}}
-                            <td>
-                                <img class="photos" src= {{image}} alt="user person" />
-                            </td>
+                            <h5 class="centered">{{users}}</h5>
                         {{/each}}
                     </tr>
-                    <tr>
-                        {{#each scorecard}}
+                    {{#each scorecard}}
+                        <tr>
                             <td>
-                                <h5 class="centered">{{first_name}}</h5>
                                 <form class="col s12">
                                     <div class="row">
                                         <div class="input-field col s6">
                                             <input placeholder="enter score" id="score" type="text" class="validate">
                                             <label for="score"></label>
                                         </div>
+                                    </div>
+                                </form>
                             </td>
-                            {{/each}}
-                    </tr>
-                    <tr>
-                        {{#each scorecard}}
-                            <td>
-                                <h5 class="centered">{{first_name}}</h5>
-                                <form class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s6">
-                                            <input placeholder="enter score" id="score" type="text" class="validate">
-                                            <label for="score"></label>
-                                        </div>
-                            </td>
-                            {{/each}}
-                    </tr>
+                        </tr>
+                    {{/each}}
                 </tbody>
             </table>
-
-            {{label}}
-              {{#each scorecard}}
-            <!-- {{round_number}} -->
-            {{/each}}
-
-
-            <!-- <h4>Rounds</h4> -->
-            </div>
-        </div>
-    </div>
