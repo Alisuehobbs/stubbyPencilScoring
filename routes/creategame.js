@@ -71,6 +71,9 @@ router.post('/', (req, res, next) => {
         }, '*')
         .then((createdGameInfo) => {
             let game = createdGameInfo[0]
+            console.log('game is', game);
+            req.session.gameInfo = game
+            console.log('req.session info', req.session.gameInfo);
             return knex('rounds')
                 .insert({
                     games_id: game.id,
