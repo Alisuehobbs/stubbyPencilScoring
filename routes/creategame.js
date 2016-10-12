@@ -19,7 +19,7 @@ function insertRows(numRows, idInfo, roundId, gameId) {
     }
 }
 
-function insertUserNames(userNameArr, game, sessionId) {
+function insertUserNames(userNameArr, game, sessionId, req) {
     for (var i = 0; i < userNameArr.length; i++) {
         knex('users')
             .where('user_name', userNameArr[i])
@@ -71,6 +71,9 @@ router.post('/', (req, res, next) => {
         }, '*')
         .then((createdGameInfo) => {
             let game = createdGameInfo[0]
+            console.log('game is', game);
+            req.session.gameInfo = game
+            console.log('req.session info', req.session.gameInfo);
             return knex('rounds')
                 .insert({
                     games_id: game.id,
@@ -84,18 +87,20 @@ router.post('/', (req, res, next) => {
                     let gameId = game.id
                     insertRows(roundNumber, sessionId, roundId, gameId);
                     let userNameArr = req.body.user_name
-                    insertUserNames(userNameArr, game, sessionId)
+                    insertUserNames(userNameArr, game, sessionId, req)
                 }, '*')
 
 
             .then(() => {
                     // console.log(req.body.user_name);
-                    res.redirect('/scorecard')
+                    res.redirect('/scorecard/:id')
                 })
                 .catch((err) => {
                     next(err)
                 })
         })
 })
+
+
 
 module.exports = router;;

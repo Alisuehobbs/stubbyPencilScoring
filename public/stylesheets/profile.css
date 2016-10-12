@@ -1,11 +1,11 @@
+.nav-wrapper {
+ background-color: #cf0f0f;
+}
+
 .photos {
     display: inline-block;
     margin: auto;
     height: 125px;
     width: 125px;
     border-radius: 50%;
-}
-
-.nav-wrapper {
- background-color: #cf0f0f;
 }
