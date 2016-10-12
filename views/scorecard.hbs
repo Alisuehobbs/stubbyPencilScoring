@@ -26,28 +26,26 @@
             <table class="centered responsive-table">
                 <tbody>
                     <tr>
-                        <td>
-                            <img class="photos" src= {{image}} alt="user person" />
-                        </td>
+                        {{#each scorecard}}
+                            <td>
+                              <img class="photos" src= {{image}} alt="user person" />
+                            </td>
+                        {{/each}}
                     </tr>
                     <tr>
                         {{#each scorecard}}
-                            <h5 class="centered">{{users}}</h5>
-                        {{/each}}
-                    </tr>
-                    {{#each scorecard}}
-                        <tr>
                             <td>
+                                <h5 class="centered">{{first_name}}</h5>
                                 <form class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s6">
-                                            <input placeholder="enter score" id="score" type="text" class="validate">
-                                            <label for="score"></label>
-                                        </div>
+                                  <div class="row">
+                                    <div class="input-field col s6">
+                                      <input placeholder="enter score" id="score" type="text" class="validate">
+                                      <label for="score"></label>
                                     </div>
+                                  </div>
                                 </form>
                             </td>
-                        </tr>
-                    {{/each}}
+                        {{/each}}
+                    </tr>
                 </tbody>
             </table>

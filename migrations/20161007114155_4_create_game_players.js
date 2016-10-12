@@ -8,12 +8,10 @@ exports.up = function(knex) {
             .references('id')
             .inTable('games')
             .onDelete('CASCADE')
-            .index();
         table.integer('users_id').notNullable()
             .references('id')
             .inTable('users')
             .onDelete('CASCADE')
-            .index();
         table.string('admin').notNullable().defaultTo('');
         table.timestamps(true, true);
 
