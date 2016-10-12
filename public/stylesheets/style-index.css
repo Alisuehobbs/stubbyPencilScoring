@@ -1,4 +1,8 @@
-body {
-  background-image: url('http://a.espncdn.com/photo/2010/0512/trav_fenwayscoreboard1_800.jpg');
-  background-repeat: no-repeat;
+.background {
+    background-image: url('http://a.espncdn.com/photo/2010/0512/trav_fenwayscoreboard1_800.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 100%;
+    height: 450px;
 }
