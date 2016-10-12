@@ -45,12 +45,25 @@
                             </td>
                             {{/each}}
                     </tr>
+                    <tr>
+                        {{#each scorecard}}
+                            <td>
+                                <h5 class="centered">{{first_name}}</h5>
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input placeholder="enter score" id="score" type="text" class="validate">
+                                            <label for="score"></label>
+                                        </div>
+                            </td>
+                            {{/each}}
+                    </tr>
                 </tbody>
             </table>
 
             {{label}}
               {{#each scorecard}}
-            {{rounds_id}}
+            <!-- {{round_number}} -->
             {{/each}}
 
 

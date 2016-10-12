@@ -20,13 +20,12 @@
 <div class="container">
 
 <h1 class="center">You made it to the profile page</h1>
+<h1 class="center">{{game_name}}</h1>
+<img class="photos" src= {{image}} alt="user person" />
 
 {{#each profile}}
 
-    <h1 class="center">{{game_name}}</h1>
-    <img class="photos" src= {{image}} alt="user person" />
-
-    <h1 class="center">{{first_name}}</h1> {{rounds.id}} {{label}}
+<h1 class="center">{{first_name}}</h1>
 
 {{/each}}
 
