@@ -4,6 +4,7 @@ const router = express.Router();
 const knex = require('../db/knex');
 
 const authorize = (req, res, next) => {
+  console.log('req.session.userInfo =', req.session.userInfo);
     if (!req.session.userInfo) {
         res.render('error', {
           message: "You need to be signed in to access the profile page.",
