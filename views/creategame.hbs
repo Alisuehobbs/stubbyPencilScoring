@@ -1,20 +1,20 @@
 <script src="/js/creategame.js"></script>
 
 <nav class="blue">
-  <div class="nav-wrapper">
-    <a href="/" class="brand-logo">Logo</a>
-    <a href="#" class="button-collapse" data-activates="mobile-demo"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="/">Home</a></li>
-      <li><a href="/profile">Profile</a></li>
-      <li><a href="/logout">Log Out</a></li>
-    </ul>
-    <ul class="side-nav" id="mobile-demo">
-      <li><a href="/">Home</a></li>
-      <li><a href="/profile">Profile</a></li>
-      <li><a href="/logout">Log Out</a></li>
-    </ul>
-  </div>
+    <div class="nav-wrapper">
+        <a href="/" class="brand-logo">Logo</a>
+        <a href="#" class="button-collapse" data-activates="mobile-demo"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">Log Out</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">Log Out</a></li>
+        </ul>
+    </div>
 </nav>
 
 <div class="container">
@@ -54,37 +54,17 @@
                     <label for="round_label">Round Label</label>
                 </div>
             </div>
-            <button class="waves-effect waves-light btn" type="submit">Submit</button>
-        </form>
-        <!-- <form id="playerForm" method="post" action="/creategame"> -->
-          <!-- <div id="playerForm"></div> -->
-        <!-- </form> -->
-        <form id="players_form" class="col s12" method="post" action="/creategame">
-            <!-- <div class="row">
+            <!-- <form id="playerForm" method="post" action="/creategame"> -->
+            <!-- <div id="playerForm"></div> -->
+            <!-- </form> -->
+            <div id="players_form" class="row">
                 <div class="input-field col s12 m6 l6">
-                    <input id="game_name" type="text" class="validate" name="user_name">
+                    <input id="game_name" type="text" class="validate" name="user_name" value="{{username}}">
                     <label for="user_name">UserName</label>
                 </div>
-            </div> -->
+            </div>
+            <button class="waves-effect waves-light btn" type="submit">Submit</button>
         </form>
     </div>
-
-    <form id="players_form" class="col s12" method="post" action="/creategame">
-        <div class="row">
-            <div class="input-field col s12 m6 l6">
-                <input id="game_name" type="text" class="validate" name="user_name">
-                <label for="user_name">UserName</label>
-            </div>
-        </div>
-    </form>
-
-  </div>
-
-
-
-
-
-
-
     <!-- End container div -->
 </div>

@@ -6,12 +6,12 @@
     <a href="#" class="button-collapse" data-activates="mobile-demo"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li><a href="/">Home</a></li>
-      <li><a href="#">Update Profile</a></li>
+      <!-- <li><a href="#">Update Profile</a></li> -->
       <li><a href="/logout">Log Out</a></li>
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <li><a href="/">Home</a></li>
-      <li><a href="#">Update Profile</a></li>
+      <!-- <li><a href="#">Update Profile</a></li> -->
       <li><a href="/logout">Log Out</a></li>
     </ul>
   </div>
@@ -20,13 +20,12 @@
 <div class="container">
 
 <h1 class="center">You made it to the profile page</h1>
+<h1 class="center">{{game_name}}</h1>
+<img class="photos" src= {{image}} alt="user person" />
 
 {{#each profile}}
 
-    <h1 class="center">{{game_name}}</h1>
-    <img class="photos" src= {{image}} alt="user person" />
-
-    <h1 class="center">{{first_name}}</h1> {{rounds.id}} {{label}}
+<h1 class="center">{{first_name}}</h1>
 
 {{/each}}
 
