@@ -90,7 +90,7 @@ router.post('/', (req, res, next) => {
 
             .then(() => {
                     // console.log(req.body.user_name);
-                    res.redirect('/login')
+                    res.redirect('/scorecard')
                 })
                 .catch((err) => {
                     next(err)
