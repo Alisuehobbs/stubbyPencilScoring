@@ -29,3 +29,25 @@ nav .brand-logo {
     width: 125px;
     border-radius: 50%;
 }
+
+.btn {
+  background-color: #B20000;
+  margin-left: auto;
+}
+
+.btn:hover {
+  background-color: #042d00;
+}
+
+.profile-content {
+  padding-top: 100px;
+}
+
+.pencil {
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+td, th {
+  font-size: 30px;
+}

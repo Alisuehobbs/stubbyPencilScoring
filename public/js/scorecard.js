@@ -45,5 +45,4 @@ $('#score_form2').keyup(() => {
   $('#total2').text(total2)
 })
 
-
 })
