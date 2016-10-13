@@ -7,22 +7,19 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 
 router.get('/auth/facebook',
     passport.authenticate('facebook', {
-            scope: ['email']
-        }
-    ));
+        scope: ['email']
+    }));
 
 router.get('/auth/facebook/callback',
-    passport.authenticate('facebook',
-    {
+    passport.authenticate('facebook', {
         successRedirect: '/profile',
         failureRedirect: '/login'
-    }
-));
+    }));
 
 /* GET users listing. */
 router.get('/', (req, res, next) => {
     res.render('signup', {
-        profilePic: 'https://unsplash.it/200/?random'
+        // profilePic: 'https://unsplash.it/200/?random'
     });
 });
 
