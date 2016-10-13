@@ -34,3 +34,12 @@ nav .brand-logo {
   background-color: #B20000;
   margin-left: auto;
 }
+
+.btn:hover {
+  background-color: #042d00;
+}
+
+.profile-content {
+  padding-top: 100px;
+  opacity: 1;
+}

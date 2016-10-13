@@ -1,12 +1,9 @@
 .background-image {
-    background-image: url('https://lh3.ggpht.com/lpB9j2F4JfvkY_Je-QbvptD95GIp5PBl3I-myoQ6K7Sa33qPwehy2vf2yct-RuHR_SqR=h900');
+    background-image: url('http://cdn.designrshub.com/wp-content/uploads/2012/08/04_lined_paper_texture.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
     height: 570px;
+    /*opacity: .5;*/
 }
-
-/*.background-image {
-  background-color: blue;
-}*/
