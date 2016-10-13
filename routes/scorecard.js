@@ -19,6 +19,7 @@ const authorize = (req, res, next) => {
 //     for (var i = 0; i <= numRounds; i++) {
 //         knex('user_rounds')
 //             .where('games.users_id', 1)
+
 //             .catch((err) => {
 //                 return err
 //             })
