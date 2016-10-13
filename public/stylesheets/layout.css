@@ -1,0 +1,23 @@
+body {
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.nav-wrapper {
+ background-color: #cf0f0f;
+}
+
+nav ul a {
+  font-size: 30px;
+}
+
+nav .brand-logo {
+  font-size: 50px;
+}
+
+.card-panel {
+  font-size: 45px;
+}
+
+.input-field label {
+  font-size: 25px;
+}
