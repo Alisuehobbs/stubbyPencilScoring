@@ -15,6 +15,7 @@ console.log('im listening');
     let score4 = parseInt($('#score4').val())
     console.log(score4)
 
+
     let total = 0
     total += score1
     total += score2
@@ -22,7 +23,7 @@ console.log('im listening');
     total += score4
     console.log(total);
     $('#total').text(total)
-})
+  })
 
 
 $('#score_form2').keyup(() => {
