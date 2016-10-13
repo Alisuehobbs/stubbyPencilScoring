@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex')
 
+
 const authorize = (req, res, next) => {
     if (!req.session.userInfo) {
         res.render('error', {
@@ -13,48 +14,50 @@ const authorize = (req, res, next) => {
     next();
 }
 
-function userLoop(input) {
-    let allPromises = [];
-    for (var i = 0; i < input.length; i++) {
-        let usersID = input[i].users_id;
-        allPromises.push(knex('users')
-            .returning('*')
-            .where('id', usersID)
-            .then((userLoopScore) => {
-              console.log('userLoopScore in userLoop: ', userLoopScore);
-              return userLoopScore[0]
-            }))
-    }
-    return Promise.all(allPromises);
-}
+// function userLoop(input) {
+//     let allPromises = [];
+//     for (var i = 0; i < input.length; i++) {
+//         let usersID = input[i].users_id;
+//         allPromises.push(knex('users')
+//             .returning('*')
+//             .where('id', usersID)
+//             .then((userInfo) => {
+//                 console.log('userInfo in userLoop: ', userInfo)
+//                 const userLoopScore = userInfo;
+//                 return userLoopScore
+//             }))
+//     }
+//     return Promise.all(allPromises);
+// }
+
+// function roundsLoop(rounds, req) {
+//     let allPromises = [];
+//     allPromises.push(knex('user_rounds')
+//         .returning('*')
+//         .where('games_id', req.session.gameInfo.id)
+//         .then((roundsInfo) => {
+//             console.log('roundsInfo is:', roundsInfo);
+//             return roundsInfo
+//         }))
+//     return Promise.all(allPromises)
+// }
 
 router.get('/:id', authorize, (req, res, next) => {
+  const roundNumber = req.session.roundInfo.number_of_rounds
     console.log('req.session.gameInfo.id is ', req.session.gameInfo.id);
-    knex('games')
-        .where('id', req.session.gameInfo.id)
-        .then((oneGame) => {
-            const id = oneGame[0].id;
-            console.log('id is: ', id);
-            console.log('oneGame is:', oneGame);
-            knex('game_players')
-                .where('games_id', id)
-                .then((users) => {
-                    console.log('users:', users);
-                    let input = users;
-                    userLoop(input)
-                    .then ((scorecard) => {
-                      console.log('final scorecard', scorecard);
-                      res.render('scorecard', {
-                        scorecard: scorecard,
-                        first_name: scorecard.first_name,
-                        game_name: req.session.gameInfo.game_name,
-                        image: scorecard.image,
-                        // rounds_id: scorecard.round_number,
-                        // users: scorecard.users_id
+    knex('users')
+      .join('game_players', 'users.id', 'game_players.users_id')
+      .join('rounds', 'game_players.games_id', 'rounds.games_id')
+        .where('game_players.games_id', req.session.gameInfo.id)
+        .then((scorecard) => {
+                  console.log('scorecard', scorecard);
+                  res.render('scorecard', {
+                          scorecard: scorecard,
+                          game_name: req.session.gameInfo.game_name,
+                          first_name: scorecard.first_name,
+                          image: scorecard.image
                       })
-                    })
-                })
-        })
+                  })
 })
 
 

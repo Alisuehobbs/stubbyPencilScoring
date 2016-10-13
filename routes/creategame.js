@@ -90,6 +90,8 @@ router.post('/', (req, res, next) => {
                     let roundNumber = Number.parseInt(req.body.number_of_rounds)
                     let roundId = info[0].id
                     let gameId = game.id
+                    req.session.roundInfo = info
+                    console.log('req.session.roundInfo', req.session.roundInfo);
                     insertRows(roundNumber, sessionId, roundId, gameId)
                         .then(() => {
                             let userNameArr = req.body.user_name
