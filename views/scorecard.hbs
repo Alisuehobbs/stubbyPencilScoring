@@ -20,25 +20,24 @@
     </div>
 </nav>
 
-<h1 class="center">You made it to the scorecard page!</h1>
-
 <h1 class="center">{{game_name}}</h1>
-<div class="container">
+<div class="container center-align">
     <div class="row">
         <div class="col s12">
             <table class="centered responsive-table">
                 <tbody>
                     <tr>
-                        {{#each scorecard}}
                             <td>
-                              <img class="photos" src= {{image}} alt="user person" />
+                              <img class="photos" src= "http://plusquotes.com/images/quotes-img/roundflower.jpg" alt="user person" />
                             </td>
-                        {{/each}}
+                            <td>
+                              <img class="photos" src= "http://blog.brentwoodbenson.com/wp-content/uploads/2015/10/Mercy-Tree-article-.jpg" alt="user person" />
+                            </td>
                     </tr>
                     <tr>
                             <td>
-                                <h5 class="centered">{{first_name}}</h5>
-                                <form class="col s12" id="score_form">
+                                <h5 class="centered">Kristen</h5>
+                                <form class="col s12 center-align" id="score_form">
                                   <div class="row">
                                     <div class="input-field col s6">
                                       <input placeholder="enter score" id="score1" type="text" class="validate">
@@ -67,7 +66,7 @@
                                 </form>
                             </td>
                             <td>
-                                <h5 class="centered">{{first_name}}</h5>
+                                <h5 class="centered">Matt G.</h5>
                                 <form class="col s12" id="score_form2">
                                   <div class="row">
                                     <div class="input-field col s6">
