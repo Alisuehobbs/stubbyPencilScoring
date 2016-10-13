@@ -24,9 +24,8 @@ router.get('/', authorize, (req, res, next) => {
         .then(profile => {
             res.render('profile', {
                 profile: profile,
-                // game_name: profile[0].game_name,
-                image: req.session.userInfo.image
-                    // image: profile[0].image
+                first_name: profile[0].first_name,
+                image: profile[0].image
             })
             console.log('profile', profile);
         })
