@@ -1,4 +1,7 @@
+
 <link rel="stylesheet" href="/stylesheets/scorecard.css">
+<script src = "/js/scorecard.js"></script>
+
 
 <nav class="blue">
     <div class="nav-wrapper">
@@ -27,60 +30,80 @@
                 <tbody>
                     <tr>
                         {{#each scorecard}}
-<<<<<<< HEAD
-
-                            <td>
-                                <h5 class="centered">{{first_name}}</h5>
-                                <form class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s6">
-                                            <input placeholder="enter score" id="score" type="text" class="validate" name = "score">
-                                            <label for="score"></label>
-                                        </div>
-                            </td>
-                            {{/each}}
-
-                            <h5 class="centered">{{users}}</h5>
-                        {{/each}}
-=======
                             <td>
                               <img class="photos" src= {{image}} alt="user person" />
                             </td>
                         {{/each}}
                     </tr>
                     <tr>
-                        {{#each scorecard}}
                             <td>
                                 <h5 class="centered">{{first_name}}</h5>
                                 <form class="col s12" id="score_form">
                                   <div class="row">
                                     <div class="input-field col s6">
-                                      <input placeholder="enter score" id="score" type="text" class="validate">
+                                      <input placeholder="enter score" id="score1" type="text" class="validate">
                                       <label for="score"></label>
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="input-field col s6">
-                                      <input placeholder="enter score" id="score" type="text" class="validate">
+                                      <input placeholder="enter score" id="score2" type="text" class="validate">
                                       <label for="score"></label>
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="input-field col s6">
-                                      <input placeholder="enter score" id="score" type="text" class="validate">
+                                      <input placeholder="enter score" id="score3" type="text" class="validate">
                                       <label for="score"></label>
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="input-field col s6">
-                                      <input placeholder="enter score" id="score" type="text" class="validate">
+                                      <input placeholder="enter score" id="score4" type="text" class="validate">
                                       <label for="score"></label>
+
                                     </div>
                                   </div>
                                 </form>
                             </td>
-                        {{/each}}
+                            <td>
+                                <h5 class="centered">{{first_name}}</h5>
+                                <form class="col s12" id="score_form2">
+                                  <div class="row">
+                                    <div class="input-field col s6">
+                                      <input placeholder="enter score" id="score5" type="text" class="validate">
+                                      <label for="score"></label>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="input-field col s6">
+                                      <input placeholder="enter score" id="score6" type="text" class="validate">
+                                      <label for="score"></label>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="input-field col s6">
+                                      <input placeholder="enter score" id="score7" type="text" class="validate">
+                                      <label for="score"></label>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="input-field col s6">
+                                      <input placeholder="enter score" id="score8" type="text" class="validate">
+                                      <label for="score"></label>
+
+                                    </div>
+                                  </div>
+                                </form>
+                            </td>
                     </tr>
+                    <tr>
+                      <td id="total">0</td>
+                      <td id="total2">0</td>
+                      </tr>
+                    <td>TOTAL</td>
+                    <td>TOTAL</td>
+                    <tr>
+                      <tr>
                 </tbody>
             </table>
->>>>>>> de70b39037aa908c4264a85029f11560b388a281
