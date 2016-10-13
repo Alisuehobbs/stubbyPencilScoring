@@ -26,12 +26,8 @@
             <table class="centered responsive-table">
                 <tbody>
                     <tr>
-                        <td>
-                            <img class="photos" src= {{image}} alt="user person" />
-                        </td>
-                    </tr>
-                    <tr>
                         {{#each scorecard}}
+<<<<<<< HEAD
 
                             <td>
                                 <h5 class="centered">{{first_name}}</h5>
@@ -46,3 +42,45 @@
 
                             <h5 class="centered">{{users}}</h5>
                         {{/each}}
+=======
+                            <td>
+                              <img class="photos" src= {{image}} alt="user person" />
+                            </td>
+                        {{/each}}
+                    </tr>
+                    <tr>
+                        {{#each scorecard}}
+                            <td>
+                                <h5 class="centered">{{first_name}}</h5>
+                                <form class="col s12" id="score_form">
+                                  <div class="row">
+                                    <div class="input-field col s6">
+                                      <input placeholder="enter score" id="score" type="text" class="validate">
+                                      <label for="score"></label>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="input-field col s6">
+                                      <input placeholder="enter score" id="score" type="text" class="validate">
+                                      <label for="score"></label>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="input-field col s6">
+                                      <input placeholder="enter score" id="score" type="text" class="validate">
+                                      <label for="score"></label>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="input-field col s6">
+                                      <input placeholder="enter score" id="score" type="text" class="validate">
+                                      <label for="score"></label>
+                                    </div>
+                                  </div>
+                                </form>
+                            </td>
+                        {{/each}}
+                    </tr>
+                </tbody>
+            </table>
+>>>>>>> de70b39037aa908c4264a85029f11560b388a281

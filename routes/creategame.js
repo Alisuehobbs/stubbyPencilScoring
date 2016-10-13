@@ -5,8 +5,9 @@ const knex = require('../db/knex')
 const boom = require('boom')
 
 function insertRows(numRows, idInfo, roundId, gameId) {
+    let allPromises = [];
     for (var i = 1; i <= numRows; i++) {
-        knex('user_rounds')
+      allPromises.push(knex('user_rounds')
             .insert({
                 rounds_id: roundId,
                 round_number: i,
@@ -15,13 +16,16 @@ function insertRows(numRows, idInfo, roundId, gameId) {
             })
             .catch((err) => {
                 return err
-            })
+            }))
     }
+    return Promise.all(allPromises);
 }
 
 function insertUserNames(userNameArr, game, sessionId, req) {
+    let allPromises = [];
+
     for (var i = 0; i < userNameArr.length; i++) {
-        knex('users')
+        allPromises.push(knex('users')
             .where('user_name', userNameArr[i])
             .first()
             .then((user) => {
@@ -50,8 +54,9 @@ function insertUserNames(userNameArr, game, sessionId, req) {
                     .then((id) => {
                         // console.log('the id is', id);
                     })
-            })
+            }))
     }
+    return Promise.all(allPromises);
 }
 
 router.get('/', (req, res, next) => {
@@ -85,19 +90,26 @@ router.post('/', (req, res, next) => {
                     let roundNumber = Number.parseInt(req.body.number_of_rounds)
                     let roundId = info[0].id
                     let gameId = game.id
-                    insertRows(roundNumber, sessionId, roundId, gameId);
-                    let userNameArr = req.body.user_name
-                    insertUserNames(userNameArr, game, sessionId, req)
-                }, '*')
+                    req.session.roundInfo = info
+                    console.log('req.session.roundInfo', req.session.roundInfo);
+                    insertRows(roundNumber, sessionId, roundId, gameId)
+                        .then(() => {
+                            let userNameArr = req.body.user_name
+                            insertUserNames(userNameArr, game, sessionId, req)
+                                .then(() => {
+                                    res.redirect('/scorecard/:id')
+                                })
+                        })
+                })
 
 
-            .then(() => {
-                    // console.log(req.body.user_name);
-                    res.redirect('/scorecard/:id')
-                })
-                .catch((err) => {
-                    next(err)
-                })
+            // .then(() => {
+            //         // console.log(req.body.user_name);
+            //         // res.redirect('/scorecard/:id')
+            //     })
+            .catch((err) => {
+                next(err)
+            })
         })
 })
 
