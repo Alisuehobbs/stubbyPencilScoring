@@ -43,6 +43,12 @@
                     <label for="players"># of Players/Teams</label>
                 </div>
             </div>
+            <div id="players_form" class="row">
+                <div class="input-field col s12 m6 l6">
+                    <input id="game_name" type="text" class="validate" name="user_name" value="{{username}}">
+                    <label for="user_name">UserName</label>
+                </div>
+            </div>
             <div class="row">
                 <div class="input-field col s12 m6 l6">
                     <input id="number_of_rounds" type="text" class="validate" data-error="Use only numbers." name="number_of_rounds">
@@ -58,13 +64,10 @@
             <!-- <form id="playerForm" method="post" action="/creategame"> -->
             <!-- <div id="playerForm"></div> -->
             <!-- </form> -->
-            <div id="players_form" class="row">
-                <div class="input-field col s12 m6 l6">
-                    <input id="game_name" type="text" class="validate" name="user_name" value="{{username}}">
-                    <label for="user_name">UserName</label>
-                </div>
+            <div class="container center-align">
+
+                <button class="waves-effect waves-light btn" type="submit">Submit</button>
             </div>
-            <button class="waves-effect waves-light btn" type="submit">Submit</button>
         </form>
     </div>
     <!-- End container div -->

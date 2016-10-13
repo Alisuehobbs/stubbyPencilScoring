@@ -29,3 +29,8 @@ nav .brand-logo {
     width: 125px;
     border-radius: 50%;
 }
+
+.btn {
+  background-color: #B20000;
+  margin-left: auto;
+}
