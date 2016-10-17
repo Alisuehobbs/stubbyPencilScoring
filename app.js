@@ -28,7 +28,7 @@ passport.use(new FacebookStrategy({
         clientID: configAuth.clientID,
         clientSecret: configAuth.clientSecret,
         callbackURL: configAuth.callbackURL,
-        profileFields: ['email', 'name', 'displayName', 'profileUrl'],
+        profileFields: ['email', 'name', 'displayName', 'picture'],
         enableProof: true,
         passReqToCallback: true
     },

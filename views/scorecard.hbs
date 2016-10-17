@@ -18,93 +18,46 @@
         </ul>
     </div>
 </nav>
-
+{{#each scorecard}}
 <h1 class="center">{{game_name}}</h1>
+{{/each}}
 <div class="container center-align">
     <div class="row">
         <div class="col s12">
             <table class="centered responsive-table">
                 <tbody>
                     <tr>
-                        <td>
-                            <img class="photos" src="https://hd.unsplash.com/uploads/1413142095961484763cf/d141726c" alt="user person" />
-                        </td>
-                        <td>
-                            <img class="photos" src="http://blog.brentwoodbenson.com/wp-content/uploads/2015/10/Mercy-Tree-article-.jpg" alt="user person" />
-                        </td>
+                        {{#each scorecard}}
+                            <td>
+                                <img class="photos" src= {{image}} alt="user person" />
+                            </td>
+                        {{/each}}
                     </tr>
                     <tr>
-                        <td>
-                            <h5 class="centered">Kristin</h5>
-                            <form class="col s12 center-align score_lines" id="score_form">
+                        {{#each scorecard}}
+                            <td>
+                                <h5 class="centered">{{first_name}}</h5>
+                            </td>
+                        {{/each}}
+                    </tr>
+                    <tr>
+                        <!-- <td>
+                            <form class="col s12 m6 center-align score_lines" id="score_form">
                                 <div class="row">
                                     <div class="input-field col s6">
                                         <input placeholder="enter score" id="score1" type="text" class="validate">
                                         <label for="score"></label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <input placeholder="enter score" id="score2" type="text" class="validate">
-                                        <label for="score"></label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <input placeholder="enter score" id="score3" type="text" class="validate">
-                                        <label for="score"></label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <input placeholder="enter score" id="score4" type="text" class="validate">
-                                        <label for="score"></label>
-
-                                    </div>
-                                </div>
                             </form>
-                        </td>
-                        <td>
-                            <h5 class="centered">Matt G.</h5>
-                            <form class="col s12 score_lines" id="score_form2">
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <input placeholder="enter score" id="score5" type="text" class="validate">
-                                        <label for="score"></label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <input placeholder="enter score" id="score6" type="text" class="validate">
-                                        <label for="score"></label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <input placeholder="enter score" id="score7" type="text" class="validate">
-                                        <label for="score"></label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <input placeholder="enter score" id="score8" type="text" class="validate">
-                                        <label for="score"></label>
-
-                                    </div>
-                                </div>
-                            </form>
-                        </td>
+                        </td> -->
                     </tr>
-
-                    <div class="total-score">
-                        <tr>
-                            <td id="total">0</td>
-                            <td id="total2">0</td>
-                        </tr>
-                        <tr>
-                            <td>TOTAL</td>
-                            <td>TOTAL</td>
-                        </tr>
-                    </div>
                 </tbody>
             </table>
+        </div>
+    </div>
+    <div class="row">
+        <a class="waves-effect waves-light btn">Add A Round</a>
+    </div>
+
+</div>

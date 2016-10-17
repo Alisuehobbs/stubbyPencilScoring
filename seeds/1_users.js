@@ -10,7 +10,8 @@ exports.seed = function(knex, Promise) {
           email:'ali@email.com',
           user_name:'alibalie',
           image:'http://www.fillmurray.com/g/200/300',
-          hashed_password:'alkjdfpaoeinveea390482'
+          hashed_password:'alkjdfpaoeinveea390482',
+          type: 'local'
         }),
         knex('users').insert({
           first_name: 'Kristin',
@@ -18,7 +19,8 @@ exports.seed = function(knex, Promise) {
           email:'kristin@email.com',
           user_name:'Kristen',
           image:'http://www.fillmurray.com/g/200/299',
-          hashed_password:'alkjdfpaoeinveea390482'
+          hashed_password:'alkjdfpaoeinveea390482',
+          type: 'local'
         }),
         knex('users').insert({
           first_name: 'Matt',
@@ -26,7 +28,8 @@ exports.seed = function(knex, Promise) {
           email:'matt@email.com',
           user_name:'Matt',
           image:'http://www.fillmurray.com/g/200/303',
-          hashed_password:'alkjdfpaoeinveea390482'
+          hashed_password:'alkjdfpaoeinveea390482',
+          type: 'local'
         })
       ]);
     });
