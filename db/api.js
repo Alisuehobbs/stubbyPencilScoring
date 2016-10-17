@@ -4,7 +4,6 @@ var knex = require('./knex')
 
 module.exports = {
     createOrLogin: (profile, callback) => {
-        console.log('You made it to the findOrCreate function');
         knex('users')
             .where('email', profile.emails[0].value)
             .first()
@@ -18,7 +17,6 @@ module.exports = {
                             callback(null, user);
                         })
                 } else {
-                    console.log('There is no user with the email. You are prepared to enter stuff into the database');
                     knex('users')
                         .insert({
                             first_name: profile._json.first_name,
